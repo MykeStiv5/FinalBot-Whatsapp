@@ -1,0 +1,23 @@
+{
+  "name": "bot-whatsapp-clean",
+  "version": "1.0.0",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "concurrently \"node src/server.js\" \"electron .\""
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "qrcode": "^1.5.4",
+    "rss-parser": "^3.13.0",
+    "whatsapp-web.js": "^1.23.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "^28.0.0"
+  },
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

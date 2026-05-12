@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Simulacion Automatica</title>
+
+  <link rel="stylesheet" href="style.css"/>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div>
+
+      <div class="brand">
+
+        <div class="brand-logo">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+
+        <div>
+          <h2>Titularizadora</h2>
+          <span>Simulación Automática</span>
+        </div>
+
+      </div>
+
+      <div class="menu">
+
+        <div class="menu-item active">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Inicio</span>
+        </div>
+        
+      </div>
+
+    </div>
+
+    <div class="sidebar-footer">
+
+      <h3>Simulación Automática</h3>
+
+      <p>
+        © 2026 Titularizadora Colombiana
+      </p>
+
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HEADER -->
+    <div class="topbar">
+
+      <div>
+
+        <h1>Simulación Automática</h1>
+
+        <div class="line-red"></div>
+
+      </div>
+
+      <div class="top-status">
+
+        <span class="live-dot"></span>
+
+        <span id="statusText">
+          Sistema activo
+        </span>
+
+      </div>
+
+    </div>
+
+    <!-- TOP GRID -->
+    <div class="top-grid">
+
+      <!-- WHATSAPP -->
+      <div class="card status-card">
+
+        <div class="card-title">
+          WhatsApp
+        </div>
+
+        <div class="status-content">
+
+          <div class="status-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+
+          <div>
+
+            <h2 id="processStatus">
+              DESCONECTADO
+            </h2>
+
+            <p>
+              Estado del bot de WhatsApp
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- LAST RUN -->
+      <div class="card run-card">
+
+        <div class="card-title">
+          Última ejecución
+        </div>
+
+        <h2 id="lastDate">
+          --/--/----
+        </h2>
+
+        <p id="lastTime">
+          --:--
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- MIDDLE GRID -->
+    <div class="middle-grid">
+
+      <!-- QR -->
+      <div class="card qr-card">
+
+        <div class="card-title">
+          Código QR
+        </div>
+
+        <div class="qr-wrapper">
+
+          <img
+            id="qrImage"
+            src=""
+            alt="QR"
+          />
+
+          <p id="qrMessage">
+            Esperando QR...
+          </p>
+
+        </div>
+
+        <button
+          class="main-btn"
+          id="refreshBtn"
+        >
+          <i class="fa-solid fa-play"></i>
+          Iniciar Bot
+        </button>
+
+      </div>
+
+      <!-- PROCESS -->
+      <div class="card process-card">
+
+        <div class="card-title">
+          Estado del proceso
+        </div>
+
+        <div class="process-list">
+
+          <div class="process-item">
+            <i class="fa-solid fa-circle-check"></i>
+
+            <div>
+              <h4>WhatsApp</h4>
+              <p id="whatsappState">
+                Esperando conexión
+              </p>
+            </div>
+          </div>
+
+          <div class="process-item">
+            <i class="fa-solid fa-circle-check"></i>
+
+            <div>
+              <h4>RSS</h4>
+              <p id="rssStatus">
+                Esperando revisión
+              </p>
+            </div>
+          </div>
+
+          <div class="process-item">
+            <i class="fa-solid fa-circle-check"></i>
+
+            <div>
+              <h4>Mensajes</h4>
+              <p id="sendStatus">
+                Sin actividad
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    
+    <!-- FORM -->
+    <div class="card manual-card">
+
+      <div class="card-title">
+        Envío manual
+      </div>
+
+      <form
+        id="manualForm"
+        class="manual-form"
+      >
+
+        <input
+          type="text"
+          id="title"
+          placeholder="Título"
+          required
+        />
+
+        <input
+          type="text"
+          id="link"
+          placeholder="Enlace"
+          required
+        />
+
+        <textarea
+          id="description"
+          placeholder="Descripción"
+          required
+        ></textarea>
+
+        <button type="submit">
+          <i class="fa-brands fa-whatsapp"></i>
+          Enviar publicación
+        </button>
+
+      </form>
+
+    </div>
+
+  </main>
+
+</div>
+
+    <!-- ACTIVITY -->
+    <div class="card activity-card">
+
+      <div class="activity-header">
+
+        <h2>
+          Actividad reciente
+        </h2>
+
+      </div>
+
+      <div
+        class="activity-list"
+        id="activityList"
+      >
+
+      </div>
+
+    </div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
