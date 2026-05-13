@@ -14,9 +14,9 @@ let mainWindow = null;
 let botStarted = false;
 
 /*
-========================
+
 CREAR VENTANA
-========================
+
 */
 function createWindow() {
 
@@ -107,7 +107,7 @@ ipcMain.handle("send-message", async (_, data) => {
 
   try {
 
-    const { number, text } = data;
+    const { number, text, imagePath } = data;
 
     /*
     ========================
@@ -127,9 +127,10 @@ ipcMain.handle("send-message", async (_, data) => {
     ENVIAR
     ========================
     */
-    const result = await sendMessage(
-      number,
-      text
+   const result = await sendMessage(
+    number,
+    text,
+    imagePath
     );
 
     /*

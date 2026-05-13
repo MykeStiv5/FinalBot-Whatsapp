@@ -25,7 +25,6 @@ body{
   color:#fff;
   display:flex;
   flex-direction:column;
-  justify-content:space-between;
   padding:30px 20px;
 }
 
@@ -87,19 +86,36 @@ body{
   font-size:20px;
 }
 
-.sidebar-footer h3{
-  color:#ff4d1c;
-  font-size:34px;
-  margin-bottom:10px;
-}
-
-.sidebar-footer p{
-  opacity:.7;
-  font-size:14px;
-}
 
 /* MAIN */
+.sidebar-info{
+  margin-top:40px;
+  padding:22px;
+  border-radius:22px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+}
 
+.info-line{
+  width:70px;
+  height:5px;
+  border-radius:20px;
+  background:#ff4d1c;
+  margin-bottom:18px;
+}
+
+.sidebar-info h3{
+  font-size:28px;
+  color:#fff;
+  margin-bottom:10px;
+  font-weight:700;
+}
+
+.sidebar-info p{
+  font-size:14px;
+  line-height:1.7;
+  color:rgba(255,255,255,.72);
+}
 .main{
   flex:1;
   padding:30px;
@@ -340,4 +356,101 @@ body{
   .sidebar{
     width:100%;
   }
+}
+/* ========================
+UPLOAD IMAGEN
+======================== */
+
+.file-upload{
+  width:100%;
+}
+
+.file-upload label{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+
+  background:#001b66;
+  color:#fff;
+
+  padding:18px;
+
+  border-radius:16px;
+
+  cursor:pointer;
+
+  font-size:15px;
+  font-weight:600;
+
+  transition:.3s;
+}
+
+.file-upload label:hover{
+  background:#0b2d8a;
+  transform:translateY(-2px);
+}
+
+.file-upload input{
+  display:none;
+}
+
+/* ========================
+PREVIEW IMAGEN
+======================== */
+
+.preview-container{
+  width:100%;
+  margin-top:10px;
+
+  display:flex;
+  justify-content:center;
+}
+
+#previewImage{
+  width:100%;
+  max-height:320px;
+
+  object-fit:cover;
+
+  border-radius:18px;
+
+  border:1px solid #e5e7eb;
+
+  background:#fff;
+
+  padding:8px;
+
+  display:none;
+}/* ========================
+TOGGLE ACTIVIDAD
+======================== */
+
+.activity-toggle{
+  width:100%;
+  background:#001b66;
+  color:#fff;
+  padding:18px 22px;
+  border-radius:20px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  font-weight:600;
+  margin-top:25px;
+  transition:.3s;
+}
+
+.activity-toggle:hover{
+  background:#0b2d8a;
+}
+
+/* ========================
+ACTIVITY HIDDEN
+======================== */
+
+.hidden-activity{
+  display:none;
+  margin-top:20px;
 }

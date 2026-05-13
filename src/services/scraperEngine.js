@@ -115,9 +115,7 @@ function startScraper(mainWindow) {
 
 📌 ${latest.title}
 
-🔗 ${latest.link}
-
-🚀 Enviado automáticamente`;
+🔗 ${latest.link}`;
 
       /*
       ========================
@@ -125,7 +123,7 @@ function startScraper(mainWindow) {
       ========================
       */
       const result = await sendMessage(
-        "3118425404",
+        "120363408686646018@g.us",
         message
       );
 

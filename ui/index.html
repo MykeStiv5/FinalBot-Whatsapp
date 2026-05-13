@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Simulacion Automatica</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
-  <link rel="stylesheet" href="style.css"/>
+  <title>Simulación Automática</title>
+
+  <link rel="stylesheet" href="style.css" />
 
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   />
+
 </head>
 
 <body>
@@ -42,18 +48,22 @@
           <i class="fa-solid fa-chart-line"></i>
           <span>Inicio</span>
         </div>
-        
+
       </div>
 
+      <!-- BLOQUE LATERAL -->
+      <div class="sidebar-info">
+
+          <div class="info-line"></div>
+
+          <h3>Simulación</h3>
+
+          <p>
+            Sistema automático de scraping<br>
+            y envío por WhatsApp
+          </p>
+
     </div>
-
-    <div class="sidebar-footer">
-
-      <h3>Simulación Automática</h3>
-
-      <p>
-        © 2026 Titularizadora Colombiana
-      </p>
 
     </div>
 
@@ -180,36 +190,51 @@
         <div class="process-list">
 
           <div class="process-item">
+
             <i class="fa-solid fa-circle-check"></i>
 
             <div>
+
               <h4>WhatsApp</h4>
+
               <p id="whatsappState">
                 Esperando conexión
               </p>
+
             </div>
+
           </div>
 
           <div class="process-item">
+
             <i class="fa-solid fa-circle-check"></i>
 
             <div>
+
               <h4>RSS</h4>
+
               <p id="rssStatus">
                 Esperando revisión
               </p>
+
             </div>
+
           </div>
 
           <div class="process-item">
+
             <i class="fa-solid fa-circle-check"></i>
 
             <div>
+
               <h4>Mensajes</h4>
+
               <p id="sendStatus">
                 Sin actividad
               </p>
+
             </div>
+
           </div>
 
         </div>
@@ -217,7 +242,7 @@
       </div>
 
     </div>
-    
+
     <!-- FORM -->
     <div class="card manual-card">
 
@@ -230,6 +255,7 @@
         class="manual-form"
       >
 
+        <!-- TITULO -->
         <input
           type="text"
           id="title"
@@ -237,6 +263,7 @@
           required
         />
 
+        <!-- LINK -->
         <input
           type="text"
           id="link"
@@ -244,27 +271,69 @@
           required
         />
 
+        <!-- DESCRIPCION -->
         <textarea
           id="description"
           placeholder="Descripción"
           required
         ></textarea>
 
+        <!-- IMAGEN -->
+        <div class="file-upload">
+
+          <label for="imageInput">
+
+            <i class="fa-solid fa-image"></i>
+            Seleccionar imagen
+
+          </label>
+
+          <input
+            type="file"
+            id="imageInput"
+            accept="image/*"
+          />
+
+        </div>
+
+        <!-- PREVIEW -->
+        <div class="preview-container">
+
+          <img
+            id="previewImage"
+            src=""
+            alt="preview"
+          />
+
+        </div>
+
+        <!-- BOTON -->
         <button type="submit">
+
           <i class="fa-brands fa-whatsapp"></i>
+
           Enviar publicación
+
         </button>
 
       </form>
 
     </div>
 
-  </main>
-
-</div>
+    <!-- TOGGLE ACTIVIDAD -->
+    <button
+      class="toggle-activity-btn"
+      id="toggleActivityBtn"
+    >
+      <i class="fa-solid fa-clock-rotate-left"></i>
+      Mostrar actividad reciente
+    </button>
 
     <!-- ACTIVITY -->
-    <div class="card activity-card">
+    <div
+      class="card activity-card hidden-activity"
+      id="activityCard"
+    >
 
       <div class="activity-header">
 
@@ -277,11 +346,51 @@
       <div
         class="activity-list"
         id="activityList"
-      >
-
-      </div>
+      ></div>
 
     </div>
+
+  </main>
+
+</div>
+
+<script>
+
+  const toggleBtn =
+    document.getElementById(
+      "toggleActivityBtn"
+    );
+
+  const activityCard =
+    document.getElementById(
+      "activityCard"
+    );
+
+  let opened = false;
+
+  toggleBtn.addEventListener(
+    "click",
+    () => {
+
+      opened = !opened;
+
+      activityCard.classList.toggle(
+        "hidden-activity"
+      );
+
+      toggleBtn.innerHTML = opened
+        ? `
+          <i class="fa-solid fa-eye-slash"></i>
+          Ocultar actividad reciente
+        `
+        : `
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          Mostrar actividad reciente
+        `;
+    }
+  );
+
+</script>
 
 <script src="app.js"></script>
 

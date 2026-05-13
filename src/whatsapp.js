@@ -1,171 +1,233 @@
-const { Client, LocalAuth } = require("whatsapp-web.js");
+const {
+Client,
+LocalAuth,
+MessageMedia
+} = require("whatsapp-web.js");
+
 const qrcode = require("qrcode");
 const path = require("path");
 
 let client = null;
 let isReady = false;
 
-/*CONECTAR WHATSAPP*/
+ /*
+ CONECTAR WHATSAPP
+
+*/
 async function connectWhatsApp(mainWindow) {
 
-  return new Promise((resolve, reject) => {
+return new Promise((resolve, reject) => {
 
-    console.log("🟡 Inicializando WhatsApp...");
+console.log("🟡 Inicializando WhatsApp...");
 
-    client = new Client({
+client = new Client({
 
-      authStrategy: new LocalAuth({
-        dataPath: path.join(__dirname, "../../session")
-      }),
+authStrategy: new LocalAuth({
+dataPath: path.join(__dirname, "../../session")
+}),
 
-      puppeteer: {
+puppeteer: {
 
-        headless: false,
+headless: false,
 
-        executablePath: undefined,
+executablePath: undefined,
 
-        args: [
-          "--no-sandbox",
-          "--disable-setuid-sandbox",
-          "--disable-dev-shm-usage",
-          "--disable-accelerated-2d-canvas",
-          "--disable-gpu"
-        ]
-      }
-    });
+args: [
+"--no-sandbox",
+"--disable-setuid-sandbox",
+"--disable-dev-shm-usage",
+"--disable-accelerated-2d-canvas",
+"--disable-gpu"
+]
+}
+});
 
-    /*QR*/
-    client.on("qr", async (qr) => {
+ /*
 
-      console.log("📲 QR generado");
+QR
 
-      const qrBase64 = await qrcode.toDataURL(qr);
+*/
+client.on("qr", async (qr) => {
 
-      mainWindow.webContents.send(
-        "qr-code",
-        qrBase64
-      );
+console.log("📲 QR generado");
 
-      mainWindow.webContents.send(
-        "bot-status",
-        "Escanea el QR"
-      );
-    });
+const qrBase64 =
+await qrcode.toDataURL(qr);
 
-    /*
-    ========================
-    READY
-    ========================
-    */
-    client.on("ready", () => {
+mainWindow.webContents.send(
+"qr-code",
+qrBase64
+);
 
-      console.log("🟢 WhatsApp conectado");
+mainWindow.webContents.send(
+"bot-status",
+"Escanea el QR"
+);
+});
 
-      isReady = true;
+/*
 
-      mainWindow.webContents.send(
-        "bot-status",
-        "WhatsApp conectado"
-      );
+READY
 
-      mainWindow.webContents.send(
-        "bot-log",
-        "✅ Bot listo"
-      );
+*/
+client.on("ready", async () => {
 
-      resolve(true);
-    });
+console.log("🟢 WhatsApp conectado");
 
-    /*
-    ========================
-    AUTH FAIL
-    ========================
-    */
-    client.on("auth_failure", (msg) => {
+isReady = true;
 
-      console.log("❌ AUTH FAIL:", msg);
+mainWindow.webContents.send(
+"bot-status",
+"WhatsApp conectado"
+);
 
-      isReady = false;
+mainWindow.webContents.send(
+"bot-log",
+"✅ Bot listo"
+);
 
-      reject(new Error(msg));
-    });
+resolve(true);
+});
 
-    /*DISCONNECTED*/
-    client.on("disconnected", (reason) => {
+/*
 
-      console.log("❌ DESCONECTADO:", reason);
+AUTH FAIL
 
-      isReady = false;
+*/
+client.on("auth_failure", (msg) => {
 
-      mainWindow.webContents.send(
-        "bot-log",
-        "❌ WhatsApp desconectado"
-      );
-    });
+console.log("❌ AUTH FAIL:", msg);
 
-    /*LOADING*/
-    client.on("loading_screen", (percent, message) => {
+isReady = false;
 
-      console.log(percent, message);
+reject(new Error(msg));
+});
 
-      mainWindow.webContents.send(
-        "bot-log",
-        `⏳ ${message} ${percent}%`
-      );
-    });
+/*
 
-    /*ERROR*/
-    client.on("change_state", state => {
-      console.log("STATE:", state);
-    });
+# DISCONNECTED
 
-    client.initialize();
-  });
+*/
+client.on("disconnected", (reason) => {
+
+console.log("❌ DESCONECTADO:", reason);
+
+isReady = false;
+
+mainWindow.webContents.send(
+"bot-log",
+"❌ WhatsApp desconectado"
+);
+});
+
+/*
+
+# LOADING
+
+*/
+client.on("loading_screen", (percent, message) => {
+
+console.log(percent, message);
+
+mainWindow.webContents.send(
+"bot-log",
+`⏳ ${message} ${percent}%`
+);
+});
+
+client.initialize();
+});
 }
 
-/*ENVIAR MENSAJE*/
-async function sendMessage(number, text) {
+/*
 
-  try {
+ ENVIAR MENSAJE
 
-    if (!client || !isReady) {
+*/
+async function sendMessage(
+number,
+text,
+imagePath = null
+) {
 
-      return {
-        success: false,
-        error: "WhatsApp no está listo"
-      };
-    }
+try {
 
-    let clean = number
-      .toString()
-      .replace(/\D/g, "");
+if (!client || !isReady) {
 
-    if (!clean.startsWith("57")) {
-      clean = "57" + clean;
-    }
+return {
+success: false,
+error: "WhatsApp no está listo"
+};
+}
+ /*
 
-    const chatId = `${clean}@c.us`;
+ DETECTAR GRUPO
 
-    console.log("📤 ENVIANDO:", chatId);
+*/
+let chatId = number;
 
-    await client.sendMessage(chatId, text);
+if (!number.includes("@g.us")) {
 
-    return {
-      success: true
-    };
+let clean = number
+.toString()
+.replace(/\D/g, "");
 
-  } catch (err) {
+if (!clean.startsWith("57")) {
+clean = "57" + clean;
+}
 
-    console.log("💥 SEND ERROR:", err.message);
+chatId = `${clean}@c.us`;
+}
 
-    return {
-      success: false,
-      error: err.message
-    };
-  }
+console.log("📤 ENVIANDO:", chatId);
+
+ /*
+
+IMAGEN
+
+*/
+if (imagePath) {
+
+const media =
+MessageMedia.fromFilePath(
+imagePath
+);
+
+await client.sendMessage(
+chatId,
+media,
+{
+caption: text
+}
+);
+
+} else {
+
+await client.sendMessage(
+chatId,
+text
+);
+}
+
+return {
+success: true
+};
+
+} catch (err) {
+
+console.log(
+"💥 SEND ERROR:",
+err.message
+);
+
+return {
+success: false,
+error: err.message
+};
+}
 }
 
 module.exports = {
-  connectWhatsApp,
-  sendMessage
+connectWhatsApp,
+sendMessage
 };
