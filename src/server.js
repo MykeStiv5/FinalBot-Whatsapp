@@ -15,3 +15,4 @@ app.post("/api/send", (req, res) => {
 });
 
 app.listen(3000, () => console.log("Servidor iniciado"));
+/*crea un pequeño servidor API usando Express.js*/

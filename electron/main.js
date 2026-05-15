@@ -13,11 +13,7 @@ const {
 let mainWindow = null;
 let botStarted = false;
 
-/*
-
-CREAR VENTANA
-
-*/
+/*CREAR VENTANA*/
 function createWindow() {
 
   mainWindow = new BrowserWindow({
@@ -35,30 +31,18 @@ function createWindow() {
     }
   });
 
-  /*
-  ========================
-  CARGAR HTML
-  ========================
-  */
+  /*CARGAR HTML*/
   mainWindow.loadFile(
     path.join(__dirname, "../ui/index.html")
   );
 }
 
-/*
-========================
-INICIAR BOT
-========================
-*/
+/*INICIAR BOT*/
 ipcMain.handle("start-bot", async () => {
 
   try {
 
-    /*
-    ========================
-    WHATSAPP
-    ========================
-    */
+    /*WHATSAPP*/
     if (!botStarted) {
 
       await connectWhatsApp(mainWindow);
@@ -66,18 +50,10 @@ ipcMain.handle("start-bot", async () => {
       botStarted = true;
     }
 
-    /*
-    ========================
-    SCRAPER
-    ========================
-    */
+    /*SCRAPER*/
     startScraper(mainWindow);
 
-    /*
-    ========================
-    LOG
-    ========================
-    */
+    /*LOG*/
     mainWindow.webContents.send(
       "bot-log",
       "🚀 Bot iniciado correctamente"
@@ -98,22 +74,14 @@ ipcMain.handle("start-bot", async () => {
   }
 });
 
-/*
-========================
-ENVÍO MANUAL
-========================
-*/
+/*ENVÍO MANUAL*/
 ipcMain.handle("send-message", async (_, data) => {
 
   try {
 
     const { number, text, imagePath } = data;
 
-    /*
-    ========================
-    VALIDAR
-    ========================
-    */
+    /*VALIDAR*/
     if (!number || !text) {
 
       return {
@@ -122,22 +90,14 @@ ipcMain.handle("send-message", async (_, data) => {
       };
     }
 
-    /*
-    ========================
-    ENVIAR
-    ========================
-    */
+    /*ENVIAR*/
    const result = await sendMessage(
     number,
     text,
     imagePath
     );
 
-    /*
-    ========================
-    LOG UI
-    ========================
-    */
+    /*LOG UI*/
     mainWindow.webContents.send(
       "bot-log",
       result.success
@@ -158,18 +118,10 @@ ipcMain.handle("send-message", async (_, data) => {
   }
 });
 
-/*
-========================
-READY
-========================
-*/
+/*READY*/
 app.whenReady().then(createWindow);
 
-/*
-========================
-CERRAR
-========================
-*/
+/*CERRAR*/
 app.on("window-all-closed", () => {
 
   if (process.platform !== "darwin") {
@@ -178,11 +130,7 @@ app.on("window-all-closed", () => {
   }
 });
 
-/*
-========================
-MAC
-========================
-*/
+/*MAC*/
 app.on("activate", () => {
 
   if (BrowserWindow.getAllWindows().length === 0) {

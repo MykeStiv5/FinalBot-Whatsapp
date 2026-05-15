@@ -17,7 +17,7 @@ body{
   min-height:100vh;
 }
 
-/* SIDEBAR */
+/* siderbar */
 
 .sidebar{
   width:280px;
@@ -87,7 +87,7 @@ body{
 }
 
 
-/* MAIN */
+/* maiin */
 .sidebar-info{
   margin-top:40px;
   padding:22px;
@@ -156,7 +156,7 @@ body{
   background:#24c45a;
 }
 
-/* GRID */
+/* grid */
 
 .top-grid,
 .middle-grid{
@@ -166,7 +166,7 @@ body{
   margin-bottom:25px;
 }
 
-/* CARD */
+/* tarjetas */
 
 .card{
   background:#fff;
@@ -279,7 +279,7 @@ body{
   color:#667085;
 }
 
-/* ACTIVITY */
+/* ACTIVIDAD */
 
 .activity-card{
   margin-bottom:25px;
@@ -337,7 +337,7 @@ body{
   background:#e63f12;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE APPLY */
 
 @media(max-width:1100px){
 
@@ -357,9 +357,7 @@ body{
     width:100%;
   }
 }
-/* ========================
-UPLOAD IMAGEN
-======================== */
+/*CARGUE DE IMAGEN*/
 
 .file-upload{
   width:100%;
@@ -395,9 +393,7 @@ UPLOAD IMAGEN
   display:none;
 }
 
-/* ========================
-PREVIEW IMAGEN
-======================== */
+/*PREVIEW IMAGEN*/
 
 .preview-container{
   width:100%;
@@ -422,9 +418,7 @@ PREVIEW IMAGEN
   padding:8px;
 
   display:none;
-}/* ========================
-TOGGLE ACTIVIDAD
-======================== */
+}/*TOGGLE ACTIVIDAD*/
 
 .activity-toggle{
   width:100%;
@@ -446,11 +440,10 @@ TOGGLE ACTIVIDAD
   background:#0b2d8a;
 }
 
-/* ========================
-ACTIVITY HIDDEN
-======================== */
+/*ACTIVIDAD HIDDEN*/
 
 .hidden-activity{
   display:none;
   margin-top:20px;
 }
+

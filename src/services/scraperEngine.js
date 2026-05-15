@@ -80,18 +80,10 @@ function startScraper(mainWindow) {
 
       const latest = items[0];
 
-      /*
-      ========================
-      LEER HISTORIAL
-      ========================
-      */
+      /*LEER HISTORIAL*/
       let sentPosts = getSentPosts();
 
-      /*
-      ========================
-      VALIDAR DUPLICADO
-      ========================
-      */
+      /*validacion de mensjaes duplicados*/
       if (sentPosts.includes(latest.link)) {
 
         console.log("🟡 Publicación ya enviada");
@@ -104,11 +96,7 @@ function startScraper(mainWindow) {
         return;
       }
 
-      /*
-      ========================
-      MENSAJE
-      ========================
-      */
+      /* MENSAJE*/
       const message =
 
 `📰 NUEVA PUBLICACIÓN
@@ -117,21 +105,13 @@ function startScraper(mainWindow) {
 
 🔗 ${latest.link}`;
 
-      /*
-      ========================
-      ENVIAR
-      ========================
-      */
+      /*ENVIAR*/
       const result = await sendMessage(
         "120363408686646018@g.us",
         message
       );
 
-      /*
-      ========================
-      SI ENVÍA → GUARDAR
-      ========================
-      */
+      /*SI ENVÍA -> GUARDAR*/
       if (result.success) {
 
         console.log("✅ RSS enviado");

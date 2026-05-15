@@ -10,10 +10,7 @@ const path = require("path");
 let client = null;
 let isReady = false;
 
- /*
- CONECTAR WHATSAPP
-
-*/
+ /* con3ectar WhatsApp*/
 async function connectWhatsApp(mainWindow) {
 
 return new Promise((resolve, reject) => {
@@ -41,12 +38,7 @@ args: [
 ]
 }
 });
-
- /*
-
-QR
-
-*/
+ /*QR generado o mapeo del qr*/
 client.on("qr", async (qr) => {
 
 console.log("📲 QR generado");
@@ -65,11 +57,7 @@ mainWindow.webContents.send(
 );
 });
 
-/*
-
-READY
-
-*/
+/*READY*/
 client.on("ready", async () => {
 
 console.log("🟢 WhatsApp conectado");
@@ -89,11 +77,7 @@ mainWindow.webContents.send(
 resolve(true);
 });
 
-/*
-
-AUTH FAIL
-
-*/
+/*AUTH FAIL*/
 client.on("auth_failure", (msg) => {
 
 console.log("❌ AUTH FAIL:", msg);
@@ -103,11 +87,7 @@ isReady = false;
 reject(new Error(msg));
 });
 
-/*
-
-# DISCONNECTED
-
-*/
+/* DISCONNECTED*/
 client.on("disconnected", (reason) => {
 
 console.log("❌ DESCONECTADO:", reason);
@@ -120,11 +100,7 @@ mainWindow.webContents.send(
 );
 });
 
-/*
-
-# LOADING
-
-*/
+/*LOADING*/
 client.on("loading_screen", (percent, message) => {
 
 console.log(percent, message);
@@ -139,11 +115,7 @@ client.initialize();
 });
 }
 
-/*
-
- ENVIAR MENSAJE
-
-*/
+/*ENVIAR MENSAJE*/
 async function sendMessage(
 number,
 text,
@@ -159,11 +131,7 @@ success: false,
 error: "WhatsApp no está listo"
 };
 }
- /*
-
- DETECTAR GRUPO
-
-*/
+ /*DETECTAR GRUPO*/
 let chatId = number;
 
 if (!number.includes("@g.us")) {
@@ -181,11 +149,7 @@ chatId = `${clean}@c.us`;
 
 console.log("📤 ENVIANDO:", chatId);
 
- /*
-
-IMAGEN
-
-*/
+ /*IMAGEN*/
 if (imagePath) {
 
 const media =

@@ -2,43 +2,25 @@ const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("electronAPI", {
 
-  /*
-  ========================
-  START BOT
-  ========================
-  */
+  /*INICIAR BOT*/
   startBot: () =>
     ipcRenderer.invoke("start-bot"),
 
-  /*
-  ========================
-  ENVIAR MENSAJE
-  ========================
-  */
+  /*ENVIAR MENSAJE*/
   sendMessage: (data) =>
     ipcRenderer.invoke("send-message", data),
+    getFilePath: (file) =>
+    file.path,
 
-  /*
-  ========================
-  QR
-  ========================
-  */
+  /*QR*/
   onQRCode: (callback) =>
     ipcRenderer.on("qr-code", (_, data) => callback(data)),
 
-  /*
-  ========================
-  STATUS
-  ========================
-  */
+  /*STATUS*/
   onStatus: (callback) =>
     ipcRenderer.on("bot-status", (_, data) => callback(data)),
 
-  /*
-  ========================
-  LOGS
-  ========================
-  */
+  /*LOGS*/
   onLog: (callback) =>
     ipcRenderer.on("bot-log", (_, data) => callback(data))
 });

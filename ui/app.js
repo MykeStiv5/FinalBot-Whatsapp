@@ -36,11 +36,7 @@ document.getElementById("lastDate");
 const lastTime =
 document.getElementById("lastTime");
 
-/*
-
- ACTIVITY
-
-*/
+/*ACTIVIDAD*/
 function addActivity(text) {
 
 const item =
@@ -73,11 +69,7 @@ lastTime.innerHTML =
 now.toLocaleTimeString();
 }
 
-/*
-
- START BOT
-
-*/
+/*INICIO DEL BOT*/
 refreshBtn.addEventListener(
 "click",
 async () => {
@@ -107,11 +99,7 @@ addActivity(
 }
 );
 
- /*
-
- QR
-
-*/
+/*QR*/
 window.electronAPI.onQRCode(
 (qr) => {
 
@@ -127,16 +115,12 @@ whatsappState.innerHTML =
 "Esperando autenticación";
 
 addActivity(
-"📲 QR generado"
+"QR generado"
 );
 }
 );
 
- /*
-
- STATUS
-
-*/
+/*STATUS*/
 window.electronAPI.onStatus(
 (status) => {
 
@@ -168,11 +152,7 @@ addActivity(status);
 }
 );
 
-/*
-
- LOGS
-
-*/
+/*LOGS*/
 window.electronAPI.onLog(
 (log) => {
 
@@ -205,11 +185,46 @@ sendStatus.innerHTML =
 }
 );
 
- /*
+/*previsualizacion de la imagen*/
+const imageInput =
+document.getElementById(
+"imageInput"
+);
 
-MANUAL SEND
+const previewImage =
+document.getElementById(
+"previewImage"
+);
 
-*/
+if (imageInput) {
+
+imageInput.addEventListener(
+"change",
+(e) => {
+
+const file =
+e.target.files[0];
+
+if (!file) return;
+
+const reader =
+new FileReader();
+
+reader.onload =
+(event) => {
+
+previewImage.src =
+event.target.result;
+
+previewImage.style.display =
+"block";
+};
+
+reader.readAsDataURL(file);
+}
+);
+}
+/*envio manual*/
 manualForm.addEventListener(
 "submit",
 async (e) => {
@@ -225,16 +240,28 @@ document.getElementById("link").value;
 const description =
 document.getElementById("description").value;
 
+/*IMAGEN*/
 const image =
-document.getElementById("image").files[0];
+imageInput.files[0];
 
+let imagePath = null;
+
+if (image) {
+
+imagePath =
+window.electronAPI.getFilePath(
+image
+);
+}
+console.log(image);
 sendStatus.innerHTML =
 "Enviando...";
 
 const result =
 await window.electronAPI.sendMessage({
 
-number: "[120363408686646018@g.us](mailto:120363408686646018@g.us)",
+number:
+"120363408686646018@g.us",
 
 text:
 
@@ -245,9 +272,7 @@ text:
 📝 ${description}`,
 
 imagePath:
-image
-? image.path
-: null
+imagePath
 });
 
 if (result.success) {
@@ -261,6 +286,12 @@ addActivity(
 
 manualForm.reset();
 
+/*RESET PREVIEW*/
+previewImage.src = "";
+
+previewImage.style.display =
+"none";
+
 } else {
 
 sendStatus.innerHTML =
@@ -273,54 +304,54 @@ addActivity(
 }
 );
 
+/*TOGGLE ACTIVIDAD*/
+const toggleBtn =
+document.getElementById(
+"toggleActivityBtn"
+);
+
+const activityCard =
+document.getElementById(
+"activityCard"
+);
+
+let opened = false;
+
+if (toggleBtn) {
+
+toggleBtn.addEventListener(
+"click",
+() => {
+
+opened = !opened;
+
+if (opened) {
+
+  activityCard.style.display =
+    "block";
+
+} else {
+
+  activityCard.style.display =
+    "none";
+}
+
+toggleBtn.innerHTML = opened
+? `
+<i class="fa-solid fa-eye-slash"></i>
+Ocultar actividad reciente
+`
+: `
+<i class="fa-solid fa-clock-rotate-left"></i>
+Mostrar actividad reciente
+`;
+}
+);
+}
+
+/*INIT*/
 addActivity(
 "✅ Interfaz iniciada"
 );
-/*
-========================
-TOGGLE ACTIVIDAD
-========================
-*/
 
-const toggleActivity =
-  document.getElementById(
-    "toggleActivity"
-  );
-
-const activityCard =
-  document.getElementById(
-    "activityCard"
-  );
-
-let activityVisible = false;
-
-toggleActivity.addEventListener(
-  "click",
-  () => {
-
-    activityVisible =
-      !activityVisible;
-
-    if (activityVisible) {
-
-      activityCard.style.display =
-        "block";
-
-      toggleActivity.innerHTML = `
-        <i class="fa-solid fa-chevron-down"></i>
-        <span>Ocultar actividad reciente</span>
-      `;
-
-    } else {
-
-      activityCard.style.display =
-        "none";
-
-      toggleActivity.innerHTML = `
-        <i class="fa-solid fa-chevron-up"></i>
-        <span>Mostrar actividad reciente</span>
-      `;
-    }
-  }
-);
 });
