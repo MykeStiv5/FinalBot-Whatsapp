@@ -2,398 +2,485 @@
 <html lang="es">
 <head>
 
-  <meta charset="UTF-8" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+<title>Dashboard Titularizadora Colombiana</title>
 
-  <title>Simulación Automática</title>
+<link rel="stylesheet" href="style.css">
 
-  <link rel="stylesheet" href="style.css" />
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
 
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  />
+<script src="https://unpkg.com/lucide@latest"></script>
 
 </head>
 
 <body>
 
-<div class="app">
+<div class="app-container">
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
+<!-- SIDEBAR -->
+<aside class="sidebar">
 
-    <div>
+<div class="sidebar-header">
 
-      <div class="brand">
+<div class="logo-icon">
 
-        <div class="brand-logo">
-          <i class="fa-brands fa-whatsapp"></i>
-        </div>
+<svg width="32" height="32" viewBox="0 0 100 100" fill="none">
 
-        <div>
-          <h2>Titularizadora</h2>
-          <span>Simulación Automática</span>
-        </div>
+<path d="M50 10 L90 40 L90 50 L50 25 L10 50 L10 40 Z" fill="#041E42"/>
+<path d="M50 25 L75 42 L75 90 L25 90 L25 42 Z" fill="#041E42"/>
+<path d="M50 10 L70 25 L30 25 Z" fill="#DA291C"/>
 
-      </div>
+</svg>
 
-      <div class="menu">
+</div>
 
-        <div class="menu-item active">
-          <i class="fa-solid fa-chart-line"></i>
-          <span>Inicio</span>
-        </div>
+<div>
 
-      </div>
+<div class="logo-title">
+Titularizadora
+</div>
 
-      <!-- BLOQUE LATERAL -->
-      <div class="sidebar-info">
+<div class="logo-subtitle">
+Colombiana
+</div>
 
-          <div class="info-line"></div>
+</div>
 
-          <h3>Simulación</h3>
+</div>
 
-          <p>
-            Sistema automático de scraping<br>
-            y envío por WhatsApp
-          </p>
+<nav class="sidebar-nav">
 
-    </div>
+<button class="nav-item active">
 
-    </div>
+<i data-lucide="home"></i>
 
-  </aside>
+<span>Inicio</span>
 
-  <!-- MAIN -->
-  <main class="main">
+</button>
 
-    <!-- HEADER -->
-    <div class="topbar">
+</nav>
 
-      <div>
+<div class="sidebar-info">
 
-        <h1>Simulación Automática</h1>
+<div class="info-title">
+Información del Sistema
+</div>
 
-        <div class="line-red"></div>
+<p class="info-text">
+Sistema automático de scraping y envío por WhatsApp
+</p>
 
-      </div>
+</div>
 
-      <div class="top-status">
+<div class="sidebar-footer">
 
-        <span class="live-dot"></span>
+<p class="copyright-text">
+© 2026 Titularizadora Colombiana
+</p>
 
-        <span id="statusText">
-          Sistema activo
-        </span>
+<p class="copyright-text-small">
+Todos los derechos reservados
+</p>
 
-      </div>
+</div>
 
-    </div>
+</aside>
 
-    <!-- TOP GRID -->
-    <div class="top-grid">
+<!-- MAIN -->
 
-      <!-- WHATSAPP -->
-      <div class="card status-card">
+<div class="main-container">
 
-        <div class="card-title">
-          WhatsApp
-        </div>
+<header class="top-header">
 
-        <div class="status-content">
+<div class="status-indicator">
 
-          <div class="status-icon">
-            <i class="fa-brands fa-whatsapp"></i>
-          </div>
+<div class="status-dot"></div>
 
-          <div>
+<span
+id="statusText"
+class="status-text">
 
-            <h2 id="processStatus">
-              DESCONECTADO
-            </h2>
+Sistema iniciado
 
-            <p>
-              Estado del bot de WhatsApp
-            </p>
+</span>
 
-          </div>
+</div>
 
-        </div>
+</header>
 
-      </div>
+<main class="main-content">
 
-      <!-- LAST RUN -->
-      <div class="card run-card">
+<!-- LOGO -->
 
-        <div class="card-title">
-          Última ejecución
-        </div>
+<div class="logo-container">
 
-        <h2 id="lastDate">
-          --/--/----
-        </h2>
+<img
+src="logo.png"
+alt="Titularizadora Colombiana"
+class="main-logo">
 
-        <p id="lastTime">
-          --:--
-        </p>
+</div>
 
-      </div>
+<!-- FILA 1 -->
 
-    </div>
+<div class="cards-grid-2">
 
-    <!-- MIDDLE GRID -->
-    <div class="middle-grid">
+<div class="card">
 
-      <!-- QR -->
-      <div class="card qr-card">
+<div class="card-center">
 
-        <div class="card-title">
-          Código QR
-        </div>
+<h3 class="whatsapp-title">
 
-        <div class="qr-wrapper">
+Interfaz WhatsApp
 
-          <img
-            id="qrImage"
-            src=""
-            alt="QR"
-          />
+</h3>
 
-          <p id="qrMessage">
-            Esperando QR...
-          </p>
+<div class="status-content">
 
-        </div>
+<div class="icon-circle-whatsapp">
 
-        <button
-          class="main-btn"
-          id="refreshBtn"
-        >
-          <i class="fa-solid fa-play"></i>
-          Iniciar Bot
-        </button>
+<i data-lucide="message-circle"></i>
 
-      </div>
+</div>
 
-      <!-- PROCESS -->
-      <div class="card process-card">
+<div>
 
-        <div class="card-title">
-          Estado del proceso
-        </div>
+<div class="status-row">
 
-        <div class="process-list">
+<i
+data-lucide="wifi-off"
+class="icon-small"></i>
 
-          <div class="process-item">
+<span
+id="whatsappState"
+class="status-disconnected">
 
-            <i class="fa-solid fa-circle-check"></i>
+DESCONECTADO
 
-            <div>
+</span>
 
-              <h4>WhatsApp</h4>
+</div>
 
-              <p id="whatsappState">
-                Esperando conexión
-              </p>
+<p class="status-subtitle">
 
-            </div>
+Estado del bot
 
-          </div>
+</p>
 
-          <div class="process-item">
+</div>
 
-            <i class="fa-solid fa-circle-check"></i>
+</div>
 
-            <div>
+</div>
 
-              <h4>RSS</h4>
+</div>
 
-              <p id="rssStatus">
-                Esperando revisión
-              </p>
+<div class="card card-flex">
 
-            </div>
+<div class="icon-circle-calendar">
 
-          </div>
+<i data-lucide="calendar"></i>
 
-          <div class="process-item">
+</div>
 
-            <i class="fa-solid fa-circle-check"></i>
+<div>
 
-            <div>
+<div class="label-small">
+Última ejecución
+</div>
 
-              <h4>Mensajes</h4>
-
-              <p id="sendStatus">
-                Sin actividad
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- FORM -->
-    <div class="card manual-card">
-
-      <div class="card-title">
-        Envío manual
-      </div>
-
-      <form
-        id="manualForm"
-        class="manual-form"
-      >
-
-        <!-- TITULO -->
-        <input
-          type="text"
-          id="title"
-          placeholder="Título"
-          required
-        />
-
-        <!-- LINK -->
-        <input
-          type="text"
-          id="link"
-          placeholder="Enlace"
-          required
-        />
-
-        <!-- DESCRIPCION -->
-        <textarea
-          id="description"
-          placeholder="Descripción"
-          required
-        ></textarea>
-
-        <!-- IMAGEN -->
-        <div class="file-upload">
-
-          <label for="imageInput">
-
-            <i class="fa-solid fa-image"></i>
-            Seleccionar imagen
-
-          </label>
-
-          <input
-            type="file"
-            id="imageInput"
-            accept="image/*"
-          />
-
-        </div>
-
-        <!-- PREVIEW -->
-        <div class="preview-container">
-
-          <img
-            id="previewImage"
-            src=""
-            alt="preview"
-          />
-
-        </div>
-
-        <!-- BOTON -->
-        <button type="submit">
-
-          <i class="fa-brands fa-whatsapp"></i>
-
-          Enviar publicación
-
-        </button>
-
-      </form>
-
-    </div>
-
-    <!-- TOGGLE ACTIVIDAD -->
-    <button
-      class="toggle-activity-btn"
-      id="toggleActivityBtn"
-    >
-      <i class="fa-solid fa-clock-rotate-left"></i>
-      Mostrar actividad reciente
-    </button>
-
-    <!-- ACTIVITY -->
 <div
-  class="card activity-card hidden-activity"
-  id="activityCard"
->
+id="lastDate"
+class="date-text">
 
-  <div class="activity-header">
-
-    <h2>
-      Actividad reciente
-    </h2>
-
-  </div>
-
-  <div
-    class="activity-list"
-    id="activityList"
-  ></div>
+--
 
 </div>
-    
 
-  </main>
+<div
+id="lastTime"
+class="time-text">
+
+--
 
 </div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FILA 2 -->
+
+<div class="cards-grid-2">
+
+<div class="card">
+
+<h3 class="card-title">
+
+Código QR
+
+</h3>
+
+<div class="qr-container">
+
+<div class="qr-placeholder">
+
+<img
+id="qrImage"
+style="display:none;width:100%;border-radius:8px;">
+
+<p
+id="qrMessage"
+class="qr-text">
+
+Esperando QR...
+
+</p>
+
+</div>
+
+</div>
+
+<button
+id="refreshBtn"
+class="btn-primary">
+
+<i data-lucide="play"></i>
+
+Iniciar Bot
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h3 class="card-title">
+
+Estado del proceso
+
+</h3>
+
+<div class="process-list">
+
+<div class="process-item">
+
+<i data-lucide="circle"
+class="process-icon-inactive"></i>
+
+<div>
+
+<div class="process-label">
+
+WhatsApp
+
+</div>
+
+<div id="processStatus"
+class="process-sublabel">
+
+Esperando conexión
+
+</div>
+
+</div>
+
+</div>
+
+<div class="process-item">
+
+<i data-lucide="circle"
+class="process-icon-inactive"></i>
+
+<div>
+
+<div class="process-label">
+
+RSS
+
+</div>
+
+<div id="rssStatus"
+class="process-sublabel">
+
+Esperando ejecución
+
+</div>
+
+</div>
+
+</div>
+
+<div class="process-item">
+
+<i data-lucide="circle"
+class="process-icon-inactive"></i>
+
+<div>
+
+<div class="process-label">
+
+Mensajes
+
+</div>
+
+<div id="sendStatus"
+class="process-sublabel">
+
+Sin actividad
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ENVÍO MANUAL -->
+
+<div class="card">
+
+<h3 class="card-title">
+
+Envío manual
+
+</h3>
+
+<form id="manualForm">
+
+<div class="form-grid-2">
+
+<input
+id="title"
+class="form-input"
+placeholder="Título">
+
+<input
+id="link"
+class="form-input"
+placeholder="Enlace">
+
+</div>
+
+<textarea
+id="description"
+class="form-textarea"
+rows="4"
+placeholder="Descripción"></textarea>
+
+<div class="form-actions">
+
+<label class="file-input-label">
+
+<i data-lucide="image"></i>
+
+<span>
+
+Seleccionar imagen
+
+</span>
+
+<input
+id="imageInput"
+type="file"
+accept="image/*"
+class="file-input-hidden">
+
+</label>
+
+<button
+type="submit"
+class="btn-red">
+
+<i data-lucide="send"></i>
+
+Enviar publicación
+
+</button>
+
+</div>
+
+<img
+id="previewImage"
+style="
+display:none;
+margin-top:15px;
+max-width:250px;
+border-radius:8px;
+">
+
+</form>
+
+</div>
+
+<div
+id="activityCard"
+class="activity-table-container"
+style="display:none;">
+
+<div class="table-header">
+
+<h3 class="table-title">
+
+Actividad reciente
+
+</h3>
+
+</div>
+
+<div
+id="activityList"
+style="padding:20px;">
+
+</div>
+
+</div>
+
+<div class="activity-toggle-container">
+
+<button
+id="toggleActivityBtn"
+class="activity-toggle-btn">
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+Mostrar actividad reciente
+
+</button>
+
+</div>
+
+</main>
+
+</div>
+
+</div>
+
+<script src="app.js"></script>
 
 <script>
 
-  const toggleBtn =
-    document.getElementById(
-      "toggleActivityBtn"
-    );
+document.addEventListener(
+"DOMContentLoaded",
+()=>{
 
-  const activityCard =
-    document.getElementById(
-      "activityCard"
-    );
+   lucide.createIcons();
 
-  let opened = false;
-
-  toggleBtn.addEventListener(
-    "click",
-    () => {
-
-      opened = !opened;
-
-      activityCard.classList.toggle(
-        "hidden-activity"
-      );
-
-      toggleBtn.innerHTML = opened
-        ? `
-          <i class="fa-solid fa-eye-slash"></i>
-          Ocultar actividad reciente
-        `
-        : `
-          <i class="fa-solid fa-clock-rotate-left"></i>
-          Mostrar actividad reciente
-        `;
-    }
-  );
+});
 
 </script>
-
-<script src="app.js"></script>
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 {
-  "targetNumber": "3118425404",
-  "rssUrl": "https://rss.app/feeds/2bnwgukClF8bI3BT.xml",
+  "sourceUrl": "https://www.titularizadora.com/es",
+  "groupId": "120363408686646018@g.us",
   "interval": 30000,
-  "autoSend": true
+  "localFeed": "./src/data/feed.xml"
 }

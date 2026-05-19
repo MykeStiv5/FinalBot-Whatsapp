@@ -78,7 +78,7 @@ processStatus.innerHTML =
 "Inicializando...";
 
 addActivity(
-"🚀 Iniciando bot..."
+"🚀 Iniciando bot..."/*se verifica en actividad reciente o en la consola*/
 );
 
 const result =
@@ -224,7 +224,7 @@ reader.readAsDataURL(file);
 }
 );
 }
-/*envio manual*/
+/*envio manual validaciones desde el main de electron con logs en la UI*/
 manualForm.addEventListener(
 "submit",
 async (e) => {
@@ -240,7 +240,9 @@ document.getElementById("link").value;
 const description =
 document.getElementById("description").value;
 
-/*IMAGEN*/
+/* imagen no se guarda en el historial de mensajes enviados, 
+por lo que no se valida duplicados en este caso, se asume 
+que es para envios puntuales y no masivos*/
 const image =
 imageInput.files[0];
 
@@ -286,7 +288,7 @@ addActivity(
 
 manualForm.reset();
 
-/*RESET PREVIEW*/
+/* ver imagen previa al envio, se limpia el src y se oculta la previsualizacion*/
 previewImage.src = "";
 
 previewImage.style.display =

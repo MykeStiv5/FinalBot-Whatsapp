@@ -57,7 +57,7 @@ mainWindow.webContents.send(
 );
 });
 
-/*READY*/
+/*ready conexiones*/
 client.on("ready", async () => {
 
 console.log("🟢 WhatsApp conectado");
@@ -87,7 +87,7 @@ isReady = false;
 reject(new Error(msg));
 });
 
-/* DISCONNECTED*/
+/* desconectado de WhatsApp indicaciones en actividad */
 client.on("disconnected", (reason) => {
 
 console.log("❌ DESCONECTADO:", reason);
@@ -115,7 +115,7 @@ client.initialize();
 });
 }
 
-/*ENVIAR MENSAJE*/
+/* parametro para el envío de mensajes al grupo 120363408686646018@g.us */
 async function sendMessage(
 number,
 text,
@@ -131,7 +131,7 @@ success: false,
 error: "WhatsApp no está listo"
 };
 }
- /*DETECTAR GRUPO*/
+ /* detectar grupo "120363408686646018@g.us" */
 let chatId = number;
 
 if (!number.includes("@g.us")) {
@@ -180,7 +180,7 @@ success: true
 } catch (err) {
 
 console.log(
-"💥 SEND ERROR:",
+"⚠️ SEND ERROR:",
 err.message
 );
 
