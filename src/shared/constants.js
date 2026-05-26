@@ -1,8 +1,6 @@
 'use strict';
 
 /**
- * CONSTANTS PRO
- * ─────────────────────────────────────────────────────────────
  * Fuente única de verdad para:
  * - Config del sistema
  * - IDs fijos

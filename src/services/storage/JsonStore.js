@@ -6,10 +6,8 @@ const crypto = require('crypto');
 const { app } = require('electron');
 
 /**
- * JsonStore PRO
- * -------------------------------------------------
+
  * Mini persistencia tipo DB local basada en JSON.
- *
  * Diseño:
  * - Cache en memoria (Set/Map)
  * - Persistencia en disco (JSON seguro)
@@ -27,9 +25,9 @@ class JsonStore {
     this._writeQueue = Promise.resolve();
   }
 
-  // =========================
-  // INIT
-  // =========================
+
+  // INICIALIZACIÓN (carga desde disco)
+  
 
   async init() {
     if (this._loaded) return;
@@ -40,9 +38,9 @@ class JsonStore {
     this._loaded = true;
   }
 
-  // =========================
-  // PUBLIC API
-  // =========================
+  // 
+  // PUBLIC API 
+  // 
 
   /**
    * Verifica si existe un ID
@@ -122,9 +120,7 @@ class JsonStore {
     this._queueWrite();
   }
 
-  // =========================
   // HASH UTIL (para scraping)
-  // =========================
 
   createHash(input) {
     return crypto
@@ -133,9 +129,9 @@ class JsonStore {
       .digest('hex');
   }
 
-  // =========================
+
   // DISK OPERATIONS
-  // =========================
+
 
   async _loadFromDisk() {
     try {

@@ -11,7 +11,7 @@ const waService = require('./WhatsAppService');
 
 const { bus, EVENTS } = require('../../shared/EventBus');
 
-// ================= CONFIG =================
+//CONFIG 
 
 const TARGET_CHAT_ID =
 process.env.TARGET_CHAT_ID ||
@@ -23,7 +23,7 @@ path.join(process.cwd(), 'storage', 'queue.json');
 const RETRY_DELAYS = [5000, 15000, 30000];
 const INTERVAL_IDLE = 1500;
 
-// ================= CLASS =================
+//CLASS
 
 class WhatsAppQueue {
 
@@ -43,7 +43,7 @@ class WhatsAppQueue {
         this._bindEvents();
     }
 
-    // ================= API =================
+    //API
 
     enqueueText(text, chatId = TARGET_CHAT_ID) {
         return this._add({
@@ -97,7 +97,7 @@ class WhatsAppQueue {
         log.warn('Queue STOP');
     }
 
-    // ================= EVENTS =================
+    //EVENTS
 
     _bindEvents() {
 
@@ -120,7 +120,7 @@ class WhatsAppQueue {
         });
     }
 
-    // ================= LOOP =================
+    //LOOP
 
     _tick() {
 
@@ -220,7 +220,7 @@ class WhatsAppQueue {
         );
     }
 
-    // ================= INTERNAL =================
+    //INTERNAL
 
     _add(data) {
 
@@ -254,7 +254,7 @@ class WhatsAppQueue {
             .join('\n\n');
     }
 
-    // ================= STORAGE =================
+    //STORAGE 
 
     _load() {
 

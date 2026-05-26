@@ -2,9 +2,7 @@
 
 document.addEventListener('DOMContentLoaded',()=>{
 
-    // ======================================
     // ELEMENTOS
-    // ======================================
 
     const whatsappStatus=
     document.getElementById('whatsappStatus');
@@ -77,9 +75,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     );
 
 
-    // ======================================
     // BOT START
-    // ======================================
 
     startBtn.addEventListener(
         'click',

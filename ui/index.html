@@ -1,622 +1,619 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dashboard Titularizadora Colombiana</title>
+		<title>Dashboard Titularizadora Colombiana</title>
 
-<link rel="stylesheet" href="style.css">
-<script src="https://unpkg.com/lucide@latest"></script>
+		<link rel="stylesheet" href="style.css">
+		<script src="https://unpkg.com/lucide@latest"></script>
 
-</head>
+	</head>
 
-<body>
+		<body>
 
-<div class="app-container">
+			<div class="app-container">
 
-<!-- Sidebar -->
-<aside class="sidebar">
+				<!-- Sidebar -->
+				<aside class="sidebar">
 
-<div class="sidebar-header">
+				<div class="sidebar-header">
 
-<div class="logo-icon">
+					<div class="logo-icon">
 
-<svg width="32" height="32" viewBox="0 0 100 100" fill="none">
-<path d="M50 10 L90 40 L90 50 L50 25 L10 50 L10 40 Z" fill="#041E42"/>
-<path d="M50 25 L75 42 L75 90 L25 90 L25 42 Z" fill="#041E42"/>
-<path d="M50 10 L70 25 L30 25 Z" fill="#DA291C"/>
-</svg>
+						<svg width="32" height="32" viewBox="0 0 100 100" fill="none">
+							<path d="M50 10 L90 40 L90 50 L50 25 L10 50 L10 40 Z" fill="#041E42"/>
+							<path d="M50 25 L75 42 L75 90 L25 90 L25 42 Z" fill="#041E42"/>
+							<path d="M50 10 L70 25 L30 25 Z" fill="#DA291C"/>
+						</svg>
 
-</div>
+					</div>
 
-<div>
+				<div>
 
-<div class="logo-title">
-Titularizadora
-</div>
+		<div class="logo-title">
+		Titularizadora
+		</div>
 
-<div class="logo-subtitle">
-Colombiana
-</div>
+		<div class="logo-subtitle">
+		Colombiana
+		</div>
 
-</div>
-</div>
+			</div>
 
-<nav class="sidebar-nav">
+			<nav class="sidebar-nav">
 
-<button class="nav-item active">
-<i data-lucide="home"></i>
-<span>Inicio</span>
-</button>
+				<button class="nav-item active">
+					<i data-lucide="home"></i>
+					<span>Inicio</span>
+				</button>
 
-</nav>
+			</nav>
 
-<div class="sidebar-info">
+			<div class="sidebar-info">
 
-<div class="info-title">
-Información del Sistema
-</div>
+			<div class="info-title">
+				Información del Sistema
+			</div>
 
-<p class="info-text">
-Sistema automático RSS + WhatsApp + Instagram
-</p>
+			<p class="info-text">
+				Sistema automático RSS + WhatsApp + Instagram
+			</p>
 
-</div>
+			</div>
 
-<div class="sidebar-footer">
-<p class="copyright-text">
-© 2026 Titularizadora Colombiana
-</p>
+			<div class="sidebar-footer">
+				<p class="copyright-text">
+					© 2026 Titularizadora Colombiana
+				</p>
 
-<p class="copyright-text-small">
-Todos los derechos reservados
-</p>
-</div>
+				<p class="copyright-text-small">
+					Todos los derechos reservados
+				</p>
+			</div>
 
-</aside>
+			</aside>
 
 
 
-<div class="main-container">
+				<div class="main-container">
 
-<header class="top-header">
+					<header class="top-header">
 
-<div class="status-indicator">
+				<div class="status-indicator">
 
-<div id="systemDot"
-class="status-dot"></div>
+					<div id="systemDot"class="status-dot"></div>
 
-<span
-id="systemStatus"
-class="status-text">
+					<span
+						id="systemStatus"
+						class="status-text">
 
-Iniciando sistema...
+						Iniciando sistema...
 
-</span>
+					</span>
 
-</div>
+				</div>
 
-</header>
+			</header>
 
-<main class="main-content">
+				<main class="main-content">
 
-<div class="logo-container">
+					<div class="logo-container">
 
-<img
-src="imagen_1.png"
-alt=""
-class="main-logo">
+						<img
+							src="imagen_1.png"
+							alt=""
+							class="main-logo">
 
-</div>
+					</div>
 
 
 
-<!-- TARJETAS -->
+			<!-- TARJETAS -->
 
-<div class="cards-grid-3">
+			<div class="cards-grid-3">
 
 
-<!-- WhatsApp -->
+				<!-- WhatsApp -->
 
-<div class="card">
+			<div class="card">
 
-<div class="card-center">
+			<div class="card-center">
 
-<h3 class="whatsapp-title">
+				<h3 class="whatsapp-title">
 
-Interfaz WhatsApp
+					Interfaz WhatsApp
 
-</h3>
+				</h3>
 
-<div class="status-content">
+			<div class="status-content">
 
-<div class="icon-circle-whatsapp">
-<i data-lucide="message-circle"></i>
-</div>
+			<div class="icon-circle-whatsapp">
+				<i data-lucide="message-circle"></i>
+			</div>
 
-<div>
+			<div>
 
-<div class="status-row">
+			<div class="status-row">
 
-<i
-id="waIcon"
-data-lucide="wifi-off"
-class="icon-small">
-</i>
+			<i
+				id="waIcon"
+				data-lucide="wifi-off"
+				class="icon-small">
+			</i>
 
-<span
-id="whatsappStatus"
-class="status-disconnected">
+			<span
+				id="whatsappStatus"
+				class="status-disconnected">
 
-DESCONECTADO
+				DESCONECTADO
 
-</span>
+			</span>
 
-</div>
+			</div>
 
-<p class="status-subtitle">
+				<p class="status-subtitle">
 
-Estado del bot
+					Estado del bot
 
-</p>
+				</p>
 
-</div>
+			</div>
 
-</div>
+			</div>
 
-</div>
+				</div>
 
-</div>
+					</div>
 
 
 
 
-<!-- Instagram -->
+						<!-- Instagram -->
 
-<div class="card">
+					<div class="card">
 
-<div class="card-center">
+				<div class="card-center">
 
-<h3 class="instagram-title">
+					<h3 class="instagram-title">
 
-Interfaz Instagram
+						Interfaz Instagram
 
-</h3>
+					</h3>
 
-<div class="status-content">
+				<div class="status-content">
 
-<div class="icon-circle-instagram">
+			<div class="icon-circle-instagram">
 
-<i data-lucide="instagram"></i>
+				<i data-lucide="instagram"></i>
 
-</div>
+			</div>
 
-<div>
+				<div>
 
-<div class="status-row">
+			<div class="status-row">
 
-<i
-id="instagramIcon"
-data-lucide="wifi-off"
-class="icon-small">
-</i>
+				<i
+					id="instagramIcon"
+					data-lucide="wifi-off"
+					class="icon-small">
+				</i>
 
-<span
-id="instagramStatus"
-class="status-disconnected">
+				<span
+					id="instagramStatus"
+					class="status-disconnected">
 
-DESCONECTADO
+					DESCONECTADO
 
-</span>
+				</span>
 
-</div>
+			</div>
 
-<p class="status-subtitle">
+			<p class="status-subtitle">
 
-Estado scraper
+				Estado scraper
 
-</p>
+			</p>
 
-</div>
+			</div>
 
-</div>
+			</div>
 
-</div>
+			</div>
 
-</div>
+			</div>
 
 
 
 
-<!-- Última ejecución -->
+			<!-- Última ejecución -->
 
-<div class="card card-flex">
+			<div class="card card-flex">
 
-<div class="icon-circle-calendar">
+				<div class="icon-circle-calendar">
 
-<i data-lucide="calendar"></i>
+					<i data-lucide="calendar"></i>
 
-</div>
+				</div>
 
-<div>
+			<div>
 
-<div class="label-small">
+			<div class="label-small">
 
-Última ejecución
+				Última ejecución
 
-</div>
+			</div>
 
-<div
-id="lastDate"
-class="date-text">
+			<div
+				id="lastDate"
+				class="date-text">
 
---
+				--
 
-</div>
+			</div>
 
-<div
-id="lastTime"
-class="time-text">
+			<div
+				id="lastTime"
+				class="time-text">
 
---
+				--
 
-</div>
+			</div>
 
-</div>
+				</div>
 
-</div>
+				</div>
 
-</div>
+			</div>
 
 
 
 
-<!-- QR + procesos -->
+			<!-- QR + procesos -->
 
-<div class="cards-grid-2">
+			<div class="cards-grid-2">
 
 
-<div class="card">
+				<div class="card">
 
-<div class="card-header">
+					<div class="card-header">
 
-<i
-data-lucide="message-circle"
-class="header-icon-whatsapp">
-</i>
+						<i
+							data-lucide="message-circle"
+							class="header-icon-whatsapp">
+						</i>
 
-<h3 class="card-title">
+						<h3 class="card-title">
 
-Código QR WhatsApp
+							Código QR WhatsApp
 
-</h3>
+						</h3>
 
-</div>
+					</div>
 
-<div class="qr-container">
+					<div class="qr-container">
 
-<img
-id="qrImage"
-style="
-display:none;
-width:180px;
-height:180px;
-">
+						<img
+							id="qrImage"
+							style="
+							display:none;
+							width:180px;
+							height:180px;
+							">
 
-<div
-id="qrWaiting"
-class="qr-placeholder">
+					<div	
+						id="qrWaiting"
+						class="qr-placeholder">
 
-<i data-lucide="qr-code"></i>
+						<i data-lucide="qr-code"></i>
 
-<span
-class="qr-text">
+						<span
+							class="qr-text">
 
-Esperando QR...
+							Esperando QR...
 
-</span>
+						</span>
 
-</div>
+					</div>
 
-</div>
+				</div>
 
-<button
-id="startBotBtn"
-class="btn-whatsapp">
+					<button
+						id="startBotBtn"
+						class="btn-whatsapp">
+						<i data-lucide="play"></i>
 
-<i data-lucide="play"></i>
+						Iniciar Bot WhatsApp
 
-Iniciar Bot WhatsApp
+					</button>
 
-</button>
+				</div>
 
-</div>
 
 
 
+			<div class="card">
 
-<div class="card">
+				<h3 class="card-title">
 
-<h3 class="card-title">
+					Estado proceso
 
-Estado proceso
+				</h3>
 
-</h3>
+			<div class="process-list">
 
-<div class="process-list">
+			<div class="process-item">
 
-<div class="process-item">
+				<i
+					id="processWA"
+					data-lucide="circle"
+					class="process-icon-inactive">
+				</i>
 
-<i
-id="processWA"
-data-lucide="circle"
-class="process-icon-inactive">
-</i>
+			<div>
 
-<div>
+			<div class="process-label">
+				WhatsApp
+			</div>
 
-<div class="process-label">
-WhatsApp
-</div>
+				<div
+					id="processWAText"
+					class="process-sublabel">
 
-<div
-id="processWAText"
-class="process-sublabel">
+					Esperando conexión
 
-Esperando conexión
+				</div>
 
-</div>
+			</div>
 
-</div>
+				</div>
 
-</div>
 
+				<div class="process-item">
 
-<div class="process-item">
+					<i
+						id="processRSS"
+						data-lucide="circle"
+						class="process-icon-inactive">
+					</i>
 
-<i
-id="processRSS"
-data-lucide="circle"
-class="process-icon-inactive">
-</i>
+				<div>
 
-<div>
+			<div class="process-label">
+				RSS
+			</div>
 
-<div class="process-label">
-RSS
-</div>
+			<div
+				id="processRSSText"
+				class="process-sublabel">
 
-<div
-id="processRSSText"
-class="process-sublabel">
+				Esperando ejecución
 
-Esperando ejecución
+			</div>
 
-</div>
+			</div>
 
-</div>
+		</div>
 
-</div>
 
+		<div class="process-item">
 
-<div class="process-item">
+		<i
+		id="processMSG"
+		data-lucide="circle"
+		class="process-icon-inactive">
+		</i>
 
-<i
-id="processMSG"
-data-lucide="circle"
-class="process-icon-inactive">
-</i>
+		<div>
 
-<div>
+		<div class="process-label">
+		Mensajes
+		</div>
 
-<div class="process-label">
-Mensajes
-</div>
+		<div
+		id="processMSGText"
+		class="process-sublabel">
 
-<div
-id="processMSGText"
-class="process-sublabel">
+		Sin actividad
 
-Sin actividad
+		</div>
 
-</div>
+		</div>
 
-</div>
+		</div>
 
-</div>
+		</div>
 
-</div>
+		</div>
 
-</div>
+		</div>
 
-</div>
 
 
 
+		<!-- Envío -->
 
-<!-- Envío -->
+		<div class="card">
 
-<div class="card">
+		<h3 class="card-title">
 
-<h3 class="card-title">
+		Envío manual
 
-Envío manual
+		</h3>
 
-</h3>
 
+		<div class="form-grid-2">
 
-<div class="form-grid-2">
+		<div class="form-group">
 
-<div class="form-group">
+		<label class="form-label">
 
-<label class="form-label">
+		Título
 
-Título
+		</label>
 
-</label>
+		<input
+		id="manualTitle"
+		type="text"
+		class="form-input">
 
-<input
-id="manualTitle"
-type="text"
-class="form-input">
+		</div>
 
-</div>
 
+		<div class="form-group">
 
-<div class="form-group">
+		<label class="form-label">
 
-<label class="form-label">
+		Enlace
 
-Enlace
+		</label>
 
-</label>
+		<input
+		id="manualLink"
+		type="text"
+		class="form-input">
 
-<input
-id="manualLink"
-type="text"
-class="form-input">
+		</div>
 
-</div>
+		</div>
 
-</div>
 
+		<div class="form-group">
 
-<div class="form-group">
+		<label class="form-label">
 
-<label class="form-label">
+		Descripción
 
-Descripción
+		</label>
 
-</label>
+		<textarea
+		id="manualDescription"
+		class="form-textarea"
+		rows="3"></textarea>
 
-<textarea
-id="manualDescription"
-class="form-textarea"
-rows="3"></textarea>
+		</div>
 
-</div>
 
+		<div class="form-actions">
 
-<div class="form-actions">
+		<label class="file-input-label">
 
-<label class="file-input-label">
+		<i data-lucide="image"></i>
 
-<i data-lucide="image"></i>
+		<span class="file-label-text">
+		Seleccionar imagen
+		</span>
 
-<span class="file-label-text">
-Seleccionar imagen
-</span>
+		<input
+		id="manualImage"
+		type="file"
+		class="file-input-hidden">
 
-<input
-id="manualImage"
-type="file"
-class="file-input-hidden">
+		</label>
 
-</label>
+		<button
+		id="sendManualBtn"
+		class="btn-red">
 
-<button
-id="sendManualBtn"
-class="btn-red">
+		<i data-lucide="send"></i>
 
-<i data-lucide="send"></i>
+		Enviar publicación
 
-Enviar publicación
+		</button>
 
-</button>
+		</div>
 
-</div>
+		</div>
 
-</div>
 
 
+		<!-- Actividad -->
 
-<!-- Actividad -->
+		<div class="activity-table-container">
 
-<div class="activity-table-container">
+		<div class="table-header">
 
-<div class="table-header">
+		<h3 class="table-title">
 
-<h3 class="table-title">
+		Actividad reciente
 
-Actividad reciente
+		</h3>
 
-</h3>
+		</div>
 
-</div>
+		<table class="activity-table">
 
-<table class="activity-table">
+		<thead>
 
-<thead>
+		<tr>
 
-<tr>
+		<th>Hora</th>
+		<th>Proceso</th>
+		<th>Detalle</th>
 
-<th>Hora</th>
-<th>Proceso</th>
-<th>Detalle</th>
+		</tr>
 
-</tr>
+		</thead>
 
-</thead>
+		<tbody id="activityTableBody">
 
-<tbody id="activityTableBody">
+		</tbody>
 
-</tbody>
+		</table>
 
-</table>
+		</div>
 
-</div>
 
+		</main>
 
-</main>
+		</div>
 
-</div>
+		</div>
 
-</div>
+		<script src="./app.js"></script>
 
-<script src="./app.js"></script>
+		<script>
+		lucide.createIcons();
+		</script>
 
-<script>
-lucide.createIcons();
-</script>
-
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+				<!-- Code injected by live-server -->
+				<script>
+					// <![CDATA[  <-- For SVG support
+					if ('WebSocket' in window) {
+						(function () {
+							function refreshCSS() {
+								var sheets = [].slice.call(document.getElementsByTagName("link"));
+								var head = document.getElementsByTagName("head")[0];
+								for (var i = 0; i < sheets.length; ++i) {
+									var elem = sheets[i];
+									var parent = elem.parentElement || head;
+									parent.removeChild(elem);
+									var rel = elem.rel;
+									if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+										var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+										elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+									}
+									parent.appendChild(elem);
+								}
+							}
+							var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+							var address = protocol + window.location.host + window.location.pathname + '/ws';
+							var socket = new WebSocket(address);
+							socket.onmessage = function (msg) {
+								if (msg.data == 'reload') window.location.reload();
+								else if (msg.data == 'refreshcss') refreshCSS();
+							};
+							if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+								console.log('Live reload enabled.');
+								sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+							}
+						})();
 					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
-</body>
+					else {
+						console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+					}
+					// ]]>
+				</script>
+		</body>
 </html>

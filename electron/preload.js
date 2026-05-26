@@ -11,9 +11,7 @@ const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('botAPI', {
 
-  // =========================
   // BOT CONTROL
-  // =========================
   startBot: () => ipcRenderer.invoke('bot:start'),
   stopBot: () => ipcRenderer.invoke('bot:stop'),
 
@@ -21,9 +19,7 @@ contextBridge.exposeInMainWorld('botAPI', {
 
   sendManual: (data) => ipcRenderer.send('bot:manual', data),
 
-  // =========================
-  // EVENTS → UI
-  // =========================
+  // EVENTOS → UI
   onWhatsAppQR: (callback) =>
     ipcRenderer.on('wa:qr', (_, data) => callback(data)),
 

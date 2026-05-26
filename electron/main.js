@@ -1,5 +1,4 @@
 'use strict';
-
 // CORRECCIÓN #22: Los polyfills File/Blob deben ir ANTES de cualquier require
 // de whatsapp-web.js para que los encuentre cuando inicializa.
 global.File = class File {};
@@ -16,7 +15,7 @@ const { bus, EVENTS } = require('../src/shared/EventBus');
 let win         = null;
 let isBotStarting = false;
 
-// ─── Window ───────────────────────────────────────────────────────────────────
+// ventana principal
 
 function createWindow() {
     win = new BrowserWindow({
@@ -39,14 +38,14 @@ function createWindow() {
     win.on('closed', () => { win = null; });
 }
 
-// ─── Safe send ────────────────────────────────────────────────────────────────
+// Envio seguro de eventos a la UI (ver bindBus) con chequeo de ventana válida.
 
 const send = (channel, data) => {
     if (!win || win.isDestroyed()) return;
     win.webContents.send(channel, data);
 };
 
-// ─── Event bridge (backend → UI) ─────────────────────────────────────────────
+// ─── Evento puente entre (backend → UI) ─────────────────────────────────────────────
 
 function bindBus() {
 
@@ -100,8 +99,8 @@ function bindBus() {
     });
 }
 
-// ─── IPC (UI → backend) ───────────────────────────────────────────────────────
-
+// IPC (UI → backend)
+// comunicacion entre procesos
 function bindIPC() {
 
     ipcMain.handle('bot:start', async () => {
@@ -131,7 +130,7 @@ function bindIPC() {
     ipcMain.on('bot:force-scrape', ()       => BotController.forceScrape());
 }
 
-// ─── App lifecycle ────────────────────────────────────────────────────────────
+// ciclo de vida de la aplicación
 
 app.whenReady().then(() => {
     createWindow();

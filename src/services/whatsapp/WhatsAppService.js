@@ -256,9 +256,7 @@ class WhatsAppService {
 
     }
 
-    // =====================================
     // NUEVO FIX MEDIA
-    // =====================================
 
     async sendMediaMessage(
         chatId,

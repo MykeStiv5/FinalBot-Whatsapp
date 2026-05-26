@@ -24,9 +24,8 @@ class InstagramScraper{
 
     }
 
-    //=========================
-    // SEEN
-    //=========================
+  
+    // envio de mensajes vistos a la UI para evitar duplicados
 
     _loadSeen(){
 
@@ -97,9 +96,9 @@ class InstagramScraper{
 
     }
 
-    //=========================
+    
     // SCRAPE
-    //=========================
+  
 
     async scrape(
         page,

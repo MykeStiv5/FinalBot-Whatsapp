@@ -1,8 +1,7 @@
 'use strict';
 
 /**
- * LOGGER PRO
- * ─────────────────────────────────────────────────────────────
+ 
  * Sistema de logging tipo SaaS interno:
  * - Logs estructurados
  * - Archivos por nivel
@@ -18,9 +17,8 @@ const { format } = require('util');
 const { bus, EVENTS } = require('../shared/EventBus');
 const { STORAGE } = require('../shared/constants');
 
-// =========================
+
 // UTILIDADES
-// =========================
 
 function ensureDir(dir) {
   if (!fs.existsSync(dir)) {
@@ -34,9 +32,8 @@ function formatMessage(args) {
   ).join(' ');
 }
 
-// =========================
+
 // LOGGER CORE
-// =========================
 
 class Logger {
   constructor(source = 'SYSTEM') {
@@ -54,9 +51,7 @@ class Logger {
     ensureDir(baseDir);
   }
 
-  // =========================
   // INTERNAL WRITE
-  // =========================
 
   _write(level, message) {
     const timestamp = new Date().toISOString();
@@ -88,9 +83,7 @@ class Logger {
     }
   }
 
-  // =========================
   // API PUBLICA
-  // =========================
 
   info(...args) {
     this._write('info', formatMessage(args));
@@ -108,9 +101,8 @@ class Logger {
     this._write('debug', formatMessage(args));
   }
 
-  // =========================
   // HELPERS AVANZADOS
-  // =========================
+
 
   section(title) {
     this.info(`\n========== ${title} ==========\n`);
@@ -121,9 +113,7 @@ class Logger {
   }
 }
 
-// =========================
 // FACTORY (IMPORTANTE)
-// =========================
 
 function createSourceLogger(source) {
   return new Logger(source);
